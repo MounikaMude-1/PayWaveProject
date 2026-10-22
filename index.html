@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A beginner-friendly UPI-style payment app demo built with HTML, CSS and JavaScript." />
+  <title>PayWave — Payments Demo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="PayWave home"><span class="brand-mark">P</span><span>Pay<span class="brand-accent">Wave</span></span></a>
+      <div class="topbar-right">
+        <span class="demo-pill"><span></span> DEMO MODE</span>
+        <button class="avatar" aria-label="Profile">M</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="welcome-row">
+        <div>
+          <p class="eyebrow" id="today-label">YOUR MONEY, SIMPLIFIED</p>
+          <h1>Good morning, Mounika <span aria-hidden="true">✦</span></h1>
+          <p class="muted">What would you like to do today?</p>
+        </div>
+      </section>
+
+      <section class="balance-card">
+        <div class="balance-top"><span>Demo wallet balance</span><span class="shield">● Secure demo</span></div>
+        <div class="balance-line"><span class="currency">₹</span><strong id="balance">12,450.00</strong><button id="toggle-balance" class="icon-button" aria-label="Hide balance">◉</button></div>
+        <div class="balance-bottom"><span>Available for simulated payments</span><span class="balance-chip">PAYWAVE WALLET</span></div>
+        <div class="balance-decoration decor-one"></div><div class="balance-decoration decor-two"></div>
+      </section>
+
+      <section class="quick-actions" aria-label="Payment actions">
+        <button class="action" data-action="send"><span class="action-icon blue">↗</span><span>Send money</span></button>
+        <button class="action" data-action="receive"><span class="action-icon mint">↓</span><span>Receive</span></button>
+        <button class="action" data-action="scan"><span class="action-icon purple">▦</span><span>Scan & pay</span></button>
+        <button class="action" data-action="history"><span class="action-icon orange">◷</span><span>History</span></button>
+      </section>
+
+      <section class="content-grid">
+        <div class="main-column">
+          <section class="panel">
+            <div class="section-heading"><div><h2>People</h2><p class="muted small">Pay your recent contacts</p></div><button class="text-button" id="all-contacts">View all</button></div>
+            <div class="contacts" id="contacts">
+              <button class="contact" data-name="Aarav Sharma"><span class="contact-avatar c1">AS</span><span>Aarav</span></button>
+              <button class="contact" data-name="Priya Reddy"><span class="contact-avatar c2">PR</span><span>Priya</span></button>
+              <button class="contact" data-name="Rohan Kumar"><span class="contact-avatar c3">RK</span><span>Rohan</span></button>
+              <button class="contact" data-name="Ananya Rao"><span class="contact-avatar c4">AR</span><span>Ananya</span></button>
+              <button class="contact" data-name="Neha Patel"><span class="contact-avatar c5">NP</span><span>Neha</span></button>
+            </div>
+          </section>
+
+          <section class="panel transactions-panel" id="transactions-section">
+            <div class="section-heading"><div><h2>Recent transactions</h2><p class="muted small">Your latest demo activity</p></div><button class="text-button" id="clear-history">Reset demo</button></div>
+            <div id="transaction-list" class="transaction-list"></div>
+          </section>
+        </div>
+
+        <aside class="side-column">
+          <section class="panel promo-panel">
+            <div class="promo-icon">✦</div>
+            <p class="eyebrow">SMART MONEY HABITS</p>
+            <h2>Every payment, in one place.</h2>
+            <p class="muted small">Explore this demo interface and practise a payment flow without using real money.</p>
+            <button class="secondary-button" id="learn-more">Explore features <span>→</span></button>
+          </section>
+          <section class="panel security-panel">
+            <div class="security-icon">✓</div>
+            <div><h3>Safe to explore</h3><p class="muted small">Demo only. No bank or UPI connection.</p></div>
+          </section>
+        </aside>
+      </section>
+      <footer>PayWave is an educational project, not an official Paytm product. All transactions are simulated.</footer>
+    </main>
+  </div>
+
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <button class="nav-item active" data-nav="home"><span>⌂</span>Home</button>
+    <button class="nav-item" data-action="send"><span>↗</span>Pay</button>
+    <button class="nav-item" data-action="scan"><span>▦</span>Scan</button>
+    <button class="nav-item" data-action="history"><span>◷</span>History</button>
+  </nav>
+
+  <div class="modal-backdrop" id="modal-backdrop" hidden>
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close" id="modal-close" aria-label="Close dialog">×</button>
+      <div id="modal-content"></div>
+    </section>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
